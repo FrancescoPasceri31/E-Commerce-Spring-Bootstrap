@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="common-header">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>BeastSeller site</title>
+
+<!-- Bootstrap core CSS -->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link th:href="@{/css/myStyle.css}" rel="stylesheet" />
+
+<script
+	src="https://cdn.tiny.cloud/1/bbuha0ha49q1id36xc62if34xv68vh2xdkb4qb5ry8g6y7dr/tinymce/5/tinymce.min.js"></script>
+<script>
+	tinymce.init({
+		selector : 'textarea',
+	});
+</script>
+
+<!-- font awesome -->
+<link th:href="@{/css/all.min.css}" rel="stylesheet" />
+<script defer th:src="@{/js/all.min.js}"></script>
+
+
+<!-- data table -->
+<link th:ref="@{/css/dataTablesCss/jquery.dataTables.min.css}"
+	rel="stylesheet" />
+<link th:ref="@{/css/dataTablesCss/dataTables.bootstrap4.min.css}"
+	rel="stylesheet" />
+
+</head>
+
+<body>
+	<div th:fragment="navbar">
+		<!-- Navigation -->
+		<nav
+			class="navbar navbar-expand navbar-light bg-light shadow round-corner mF fixed-top big-space-down">
+			<div class="container">
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarResponsive" aria-controls="navbarResponsive"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<img th:src="@{/images/logoLettera.png}" class="img-responsive"
+						alt="BeastSeller" style="height: 60px; width: 60px;" />
+					<ul class="navbar-nav">
+						<li><a class="navbar-brand nav-link" th:href="@{/}"
+							style="color: black">Amministratore</a></li>
+						<li class="nav-item dropdown"><a href="#"
+							class="nav-link dropdown-toggle" data-toggle="dropdown"
+							role="button" aria-haspopup="true" aria-expanded="false"><font
+								color="black">Operazioni</font> <span class="caret"></span> </a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" th:href="@{/book/add}">Aggiungi nuovo libro</a></li>
+								<li><a class="dropdown-item" th:href="@{/book/bookList}">Visiona il catalogo</a></li>
+							</ul></li>
+					</ul>
+					<ul class="navbar-nav ml-auto">
+						<li><a class="nav-link" th:href="@{/logout}"
+							style="color: black">Esci</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+<div th:fragment="footer" class="dark">
+		<br /> <br />
+		<footer>
+			<div class="row no-gutters space-left" style="margin-top: -35px;">
+				<div class="col-3 footerleft">
+					<div class="logofooter">
+						<a th:ref="@{/}"><img th:src="@{/images/logoLettera.png}"
+							class="img-fluid" style="height: 90px;"/></a>
+					</div>
+					<p>
+						BeastSeller Book Store.<br />Serviamo ai nostri clienti il meglio.
+					</p>
+				</div>
+				<div class="col-3 paddingtop-bottom">
+					<h6 class="heading7">CONTATTI</h6>
+					<ul class="post">
+						<li><i class="fas fa-map-marker-alt"></i> XXX XXX via Citta Codice, Provincia CAP</li>
+						<li><i class="fas fa-phone"></i> Telefono (Sigla Provincia) : +39
+							XXXXXXXXXX</li>
+						<li><i class="far fa-envelope"></i> E-mail :
+							beastsellerproject@gmail.com</li>
+					</ul>
+				</div>
+				<div class="col-3 paddingtop-bottom" >
+					<h6 class="heading7">LINK</h6>
+					<ul class="post">
+						<li><a href="#">Termini e Condizioni</a></li>
+						<li><a href="@{/faq}">Frequently Ask Questions (F.A.Q.)</a></li>
+					</ul>
+				</div>
+				<div class="col-3 paddingtop-bottom">
+					<h6 class="heading7">ORARI DEL NEGOZIO</h6>
+					<ul class="post">
+						<li><h6>Luned&igrave; - Sabato</h6></li>
+						<li><h6>Dalle 07:00 alle 13:30</h6></li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+
+	<div th:fragment="body-bottom-scripts">
+		<!-- Bootstrap core JavaScript
+    ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+			integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+			crossorigin="anonymous"></script>
+
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+
+		<!-- bootbot -->
+		<script th:src="@{/js/bootbox/bootbox.min.js}"></script>
+
+		<!-- data table script -->
+		<script th:src="@{/js/dataTablesJS/jquery.dataTables.min.js}"></script>
+		<script th:src="@{/js/dataTablesJS/dataTables.bootstrap4.min.js}"></script>
+		
+		<!-- my script -->
+		<script th:src="@{/js/scripts.js}"></script>
+	</div>
+</body>
+</html>

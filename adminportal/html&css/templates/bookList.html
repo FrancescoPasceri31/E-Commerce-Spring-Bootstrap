@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+
+<head th:replace="common/header :: common-header"></head>
+
+<body class="my-bg pt-5">
+	<div th:replace="common/header :: navbar"></div>
+
+
+
+	<div class="container" style="margin-top: 60px;">
+		<div class="table-responsive container">
+			<table id="bookListTable"
+				class="table table-bordered table-hover table-striped display"
+				style="width: 100%">
+				<thead class="thead-dark">
+					<tr>
+						<th><input th:id="selectAllBooks" type="checkbox" /></th>
+						<th>Titolo</th>
+						<th>Autore</th>
+						<th>Categoria</th>
+						<th>Prezzo consigliato</th>
+						<th>Prezzo attuale</th>
+						<th>Disponibile?</th>
+						<th>Operazione</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-th-each="book : ${bookList}">
+						<td><input hidden="hidden" name="id" th:value="${book.id}" />
+							<input th:id="'selected'+${book.id}" class="checkboxBook"
+							type="checkbox" /></td>
+						<td><a th:href="@{/book/bookInfo(id=${book.id})}"><span
+								th:text="${book.title}"></span></a></td>
+						<td th:text="${book.author}"></td>
+						<td th:text="${book.category}"></td>
+						<td th:text="${book.listPrice}"></td>
+						<td th:text="${book.ourPrice}"></td>
+						<td th:text="${book.active}"></td>
+						<td><input hidden="hidden" name="id" th:value="${book.id}" />
+							<button th:id="'oneBook-'+${book.id}"
+								class="btn btn-danger btn-sm delete-book" type="submit"
+								value="delete">
+								<span><i class="far fa-trash-alt"></i>&nbsp;Rimuovi</span>
+							</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<button th:id="deleteSelected" class="btn btn-danger">Rimuovi selezionati</button>
+
+	</div>
+
+	<div th:replace="common/header :: body-bottom-scripts"></div>
+
+	<script>
+		$(document).ready(
+				function() {
+					$('#bookListTable').DataTable(
+							{
+								"lengthMenu" : [ [ 5, 10, 15, 20, -1 ],
+										[ 5, 10, 15, 20, "Tutti" ] ],
+								"ordering" : false,
+								stateSave : true
+							});
+				});
+	</script>
+
+</body>
+</html>
