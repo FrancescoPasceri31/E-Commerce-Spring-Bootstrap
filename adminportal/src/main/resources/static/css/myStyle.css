@@ -1,0 +1,132 @@
+body {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+hr {
+	border: none;
+	height: 1px;
+	color: #333;
+	background-color: #333;
+}
+
+#inner {
+	display: table;
+	margin: 0 auto;
+}
+
+.my-bg {
+	/* background-image: url("/images/background3.jpg"); */
+	background-color: white;
+}
+
+.dark {
+	background-image: url("/images/background3.jpg");
+	color: white;
+	margin-top: 130px;
+	margin-bottom: -120px;
+}
+
+.carousel-item {
+	height: 65vh;
+	min-height: 350px;
+	background: no-repeat center center scroll;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.navbar {
+	margin-bottom: 20px;
+}
+
+.space-up {
+	margin-top: 20px;
+}
+
+.space-left {
+	margin-left: 20px;
+}
+
+.space-right {
+	margin-right: 20px;
+}
+
+.space-down {
+	margin-bottom: 20px;
+}
+
+.lil-space-down {
+	margin-bottom: 5px;
+}
+
+.big-space-down {
+	margin-bottom: 50px;
+}
+
+.mF {
+	color: black;
+}
+
+.my-trasparent {
+	border: 0px;
+	background-color: rgba(0, 0, 0, 0.0);
+}
+
+.my-search-bar {
+	margin-top: 60px;
+	border-color: dark;
+	border-style: solid;
+	border: medium;
+}
+
+.home-headline {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 24px;
+	color: #fff;
+	margin: auto;
+	text-align: center;
+	margin-top: -13px;
+}
+
+.home-headline span {
+	background-color: #231F20;
+	padding: 5px 22px;
+}
+
+.section-headline {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 24px;
+	color: #fff;
+	margin: auto;
+	text-align: center;
+	margin-top: 90px;
+}
+
+.my-kg{
+	background-color: white;
+	color: black;
+	border: black 1px solid;
+}
+
+.my-price{
+	background-color: white;
+	color: navy;
+	border: navy 1px solid;
+}
+
+.my-listPrice{
+	background-color: white;
+	color: red;
+	border: red 1px solid;
+}
+
+.section-headline span {
+	background-color: #231F20;
+	padding: 5px 22px;
+}
+
+.round-corner {
+	border-radius: 15px;
+}

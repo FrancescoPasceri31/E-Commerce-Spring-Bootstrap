@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body class="pt-5 my-bg">
+
+	<div th:replace="common/header :: navbar"></div>
+
+	<div class="container pt-5">
+
+		<div class="row pb-3">
+			<div class="col-2"></div>
+			<div class="col-8">
+				<img class="img-fluid" src="/images/benvenuto.png" alt="Benvenuto" />
+			</div>
+		</div>
+
+		<div class="row inline-block">
+			<div class="col-9 col-offset-3">
+				<!-- Navigation tabs -->
+				<ul class="nav nav-tabs">
+					<li class="nav-item "><a class="nav-link" href="#tab-1"
+						data-toggle="tab"
+						th:classappend="${classActiveNewAccount}? 'active'"><span>Crea
+								un nuovo account</span></a></li>
+					<li class="nav-item "><a class="nav-link" href="#tab-2"
+						data-toggle="tab" th:classappend="${classActiveLogin}? 'active'"><span>Log
+								in</span></a></li>
+					<li class="nav-item "><a class="nav-link" href="#tab-3"
+						data-toggle="tab"
+						th:classappend="${classActiveForgetPassword}? 'active'"><span>Password
+								dimenticata?</span></a></li>
+				</ul>
+				<div class="container"
+					style="background-color: #E0FFFF; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
+					<div class="tab-content"
+						style="background-color: #E0FFFF; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
+
+						<!-- Create new user pane -->
+						<div class="tab-pane space-up" id="tab-1"
+							th:classappend="${classActiveNewAccount}? 'in active' : 'fade'">
+							<div class="panel-group">
+								<div class="panel panel-default">
+									<div class="panel-body"
+										style="background-color: rgba(0, 0, 0, 0.0);">
+										<div class="alert alert-info" th:if="${emailSent}">Un&apos;email
+											&egrave; stata mandata al tuo indirizzo email. Controlla la
+											posta per visualizzarla e clicca sul link per effettuare
+											l&apos;accesso e modificare i dati.</div>
+										<form th:action="@{newUser}" method="post">
+											<div class="form-group ">
+												<div class="form-group">
+													<label class="space-up" for="newUsername"><font
+														color="black" size="4">* Username: </font></label> &nbsp;<span
+														style="color: red;" th:if="${usernameExists}">Username
+														gi&agrave; in uso. Scegliere un altro username.</span> <input
+														required="required" type="text" class="form-control w-75"
+														id="newUsername" name="username" />
+													<p style="color: #828282">Inserisci qui
+														l&apos;username.</p>
+												</div>
+												<div class="form-group">
+													<label for="email"><font color="black" size="4">*
+															Email Address:</font></label> &nbsp;<span style="color: red;"
+														th:if="${emailExists}">Email gi&agrave; in uso.
+														Scegliere un altro indirizzo o recuperare la password
+														dimenticata..</span> <input required="required" type="text"
+														class="form-control w-75" id="email" name="email" />
+													<p style="color: #828282">Inserire un indirizzo email
+														valido. Tutte le email del sistema saranno inoltrare verso
+														questo indirizzo. Non pubblicare i propri dati e non
+														rispondere ad email richiedenti il cambio di password.</p>
+												</div>
+												<button type="submit" class="btn btn-primary space-down">Crea
+													nuovo account</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end create new user pane -->
+
+						<!-- Login pane -->
+						<div class="tab-pane" id="tab-2"
+							th:classappend="${classActiveLogin}? 'in active': 'fade'">
+							<div class="panel-group">
+								<div class="panel panel-default">
+									<div class="panel-body"
+										style="background-color: rgba(0, 0, 0, 0.0); margin-top: 20px;">
+										<div class="alert alert-danger" th:if="${param.error != null}">
+											Username o password errati.</div>
+										<form th:action="@{/login}" method="post">
+											<div class="form-group">
+												<div class="form-group">
+													<label class="space-up" for="newUsername"><font
+														color="black" size="4">* Username: </font></label> <input
+														required="required" type="text" class="form-control"
+														id="newUsername" name="username" />
+													<p style="color: #828282">Inserisci qui il tuo username.</p>
+												</div>
+												<div class="form-group">
+													<label for="email"><font color="black" size="4">*
+															Password </font></label> <input required="required" type="password"
+														class="form-control" id="password" name="password" />
+													<p style="color: #828282">Inserire la password del tuo account.</p>
+												</div>
+												<button type="submit" class="btn btn-primary space-down">Log
+													in</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end Login pane -->
+
+						<!-- Forget password pane -->
+						<div class="tab-pane" id="tab-3"
+							th:classappend="${classActiveForgetPassword}? 'in active': 'fade'">
+							<div class="panel-group">
+								<div class="panel panel-default">
+									<div class="panel-body"
+										style="background-color: rgba(0, 0, 0, 0.0); margin-top: 20px;">
+										<div th:if="${emailNotExists}" class="alert alert-danger">
+											L&apos;email non esiste.</div>
+										<div th:if="${forgetPasswordEmailSent}"
+											class="alert alert-success">Email inviata.</div>
+										<form th:action="@{/forgetPassword}" method="post">
+											<div class="form-group">
+												<div class="form-group">
+													<label class="space-up" for="recoverEmail"><font
+														color="black" size="4">* La tua email: </font></label> <input
+														required="required" type="text" class="form-control"
+														id="recoverEmail" name="email" />
+													<p style="color: #828282">Inserire l'indirizzo email di registrazione.</p>
+												</div>
+												<button type="submit" class="btn btn-primary space-down">Invia</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end forget password pane -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end of container -->
+	<div th:replace="common/header :: footer"></div>
+
+	<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+</html>

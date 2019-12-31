@@ -1,0 +1,167 @@
+body {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+hr {
+	border: none;
+	height: 1px;
+	color: #333;
+	background-color: #333;
+}
+
+#inner {
+	display: table;
+	margin: 0 auto;
+}
+
+.my-bg {
+	/* background-image: url("/images/background3.jpg"); */
+	background-color: white;
+}
+
+
+.dark {
+	background-image: url("/images/background3.jpg");
+	color: white;
+	margin-top: 130px;
+	margin-bottom: -120px;
+	width: 100%;
+}
+
+.carousel-item {
+	height: 65vh;
+	min-height: 350px;
+	background: no-repeat center center scroll;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.navbar {
+	margin-bottom: 20px;
+}
+
+.space-up {
+	margin-top: 20px;
+}
+
+.big-space-up {
+	margin-top: 50px;
+}
+
+.space-left {
+	margin-left: 20px;
+}
+
+.space-right {
+	margin-right: 20px;
+}
+
+.space-down {
+	margin-bottom: 20px;
+}
+
+.lil-space-down {
+	margin-bottom: 5px;
+}
+
+.big-space-down {
+	margin-bottom: 50px;
+}
+
+.bg-w {
+	background-color: white;
+}
+
+.mF {
+	color: white;
+}
+
+.my-trasparent {
+	border: 0px;
+	background-color: rgba(0, 0, 0, 0.0);
+}
+
+.my-search-bar {
+	margin-top: 60px;
+	border-color: dark;
+	border-style: solid;
+	border: medium;
+}
+
+.home-headline {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 24px;
+	color: #fff;
+	margin: auto;
+	text-align: center;
+	margin-top: -13px;
+}
+
+.home-headline span {
+	background-color: #231F20;
+	padding: 5px 22px;
+}
+
+.section-headline {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 24px;
+	color: black;
+	margin: auto;
+	text-align: center;
+	margin-top: 90px;
+}
+
+.section-headline2 {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 24px;
+	color: black;
+	margin: auto;
+	text-align: center;
+	margin-top: 90px;
+}
+
+.section-headline span {
+	background-color: khaki;
+	padding: 5px 22px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+	border-top: 1px solid black;
+}
+
+.section-headline2 span {
+	background-color: black;
+	color: white;
+	padding: 5px 22px;
+}
+
+#wrapper, .right {
+	overflow: hidden;
+}
+
+#wrapper>div {
+	border: 1px solid;
+	height: 80px;
+	width: 100%;
+}
+
+.left, .middle {
+	float: left;
+}
+
+.left {
+	width: 100px
+}
+
+.borderLandB {
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.round-corner {
+	border-radius: 15px;
+}
