@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link href="/css/myStyle.css" rel="stylesheet" />
+<link href="/css/neonStyle.css" rel="stylesheet" />
+
+<!-- Font awesome -->
+<link href="/css/all.min.css" rel="stylesheet" />
+
+<style>
+table {
+	border-collapse: collapse;
+}
+
+table, th, td {
+	border: 1px black solid;
+}
+</style>
+</head>
+
+<body>
+
+	<p>
+		Salve <span th:text="${user.firstName}"></span>,
+	</p>
+	<br />
+	<p>Grazie per aver acquistato dal nostro negozio online. Speriamo di aver fornito il miglior servizio possibile.</p>
+	<p>
+		Il numero del tuo ordine &egrave;: <strong>#<span th:text="${order.id}"></span></strong>.
+		Ecco i dettagli:
+	</p>
+	<h2>
+		Dettagli dell&apos;ordine #<span th:text="${order.id}"></span>
+	</h2>
+	<hr />
+
+	<table>
+		<tr>
+			<th>Dettagli di fatturazione</th>
+			<th>Informazioni sul pagamento</th>
+			<th>Indirizzo di spedizione</th>
+		</tr>
+		<tr>
+			<td><span th:text="${order.billingAddress.billingAddressName}"></span><br />
+				<span
+				th:text="${order.billingAddress.billingAddressStreet1}+' '+${order.billingAddress.billingAddressStreet2}"></span><br />
+				<span th:text="${order.billingAddress.billingAddressCity}"></span><br />
+				<span th:text="${order.billingAddress.billingAddressState}"></span><br />
+				<span th:text="${order.billingAddress.billingAddressZipcode}"></span><br />
+			</td>
+			<td><span th:text="${order.payment.holderName}"></span><br /> <span
+				th:text="${order.payment.type}"></span><br /> <span
+				th:text="${order.payment.cardNumber}"></span><br /> <span
+				th:text="${order.payment.expiryMonth}"></span><br /> <span
+				th:text="${order.payment.expiryYear}"></span><br /></td>
+			<td><span th:text="${order.shippingAddress.shippingAddressName}"></span><br />
+				<span
+				th:text="${order.shippingAddress.shippingAddressStreet1}+' '+${order.shippingAddress.shippingAddressStreet2}"></span><br />
+				<span th:text="${order.shippingAddress.shippingAddressCity}"></span><br />
+				<span th:text="${order.shippingAddress.shippingAddressState}"></span><br />
+				<span th:text="${order.shippingAddress.shippingAddressZipcode}"></span><br />
+			</td>
+		</tr>
+	</table>
+
+
+	<h3>
+		<strong>Sommario dell&apos;ordine</strong>
+	</h3>
+	<table>
+		<thead>
+			<tr>
+				<td><strong>Prodotto</strong>
+				<td><strong class="text-center">Prezzo</strong></td>
+				<td><strong class="text-center">Quantit&agrave;</strong></td>
+				<td><strong class="text-right">Totale</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="cartItem : ${cartItemList}">
+				<td><span data-th-text="${cartItem.book.title}"></span></td>
+				<td><span class="text-center"
+					data-th-text="${cartItem.book.ourPrice}"></span></td>
+				<td><span class="text-center" data-th-text="${cartItem.qty}"></span></td>
+				<td><span class="text-right"
+					data-th-text="${cartItem.subtotal}"></span></td>
+			</tr>
+			<tr>
+				<td><span class="highrow"></span></td>
+				<td><span class="highrow"></span></td>
+				<td><span class="highrow text-center"><strong>Subtotale</strong></span>
+				</td>
+				<td><span class="highrow text-right"
+					data-th-text="${order.orderTotal}"></span></td>
+			</tr>
+			<tr>
+				<td><span class="emptyrow"></span></td>
+				<td><span class="emptyrow"></span></td>
+				<td><span class="emptyrow text-center"><strong>Tasse(6%)</strong></span>
+				</td>
+				<td><span class="emptyrow text-right"
+					data-th-text="${#numbers.formatDecimal(order.orderTotal*0.06,0,2)}"></span></td>
+			</tr>
+			<tr>
+				<td class="emptyrow"><i class="fas fa-barcode"></i></td>
+				<td class="emptyrow"></td>
+				<td class="emptyrow text-center"><strong>Totale</strong></td>
+				<td class="emptyrow text-right"
+					th:with="total=${order.orderTotal+order.orderTotal*0.06}"
+					data-th-text="${#numbers.formatDecimal(total, 0, 2)}"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<br />
+	<p>Cordiali saluti,</p>
+	<p>BeastSeller</p>
+</body>
+</html>

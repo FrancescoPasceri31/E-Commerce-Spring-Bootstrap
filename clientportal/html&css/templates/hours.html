@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body class="pt-5 my-bg">
+
+	<div th:replace="common/header :: navbar"></div>
+
+	<div class="pt-5 container">
+		<div class="row">
+			<div class="col-5">
+				<img class="img-fluid" src="/images/maps.jpg" />
+			</div>
+			<div class="col-7">
+				<h5>Contattaci:</h5>
+				<hr />
+				<br />
+				<ul style="list-style: none;">
+					<li><div class="row px-2">
+							<i class="far fa-clock"></i>
+							<h6 class="pl-2">
+								<strong>Giorni:</strong> Luned&igrave; - Sabato
+							</h6>
+						</div></li>
+					<li>
+						<div class="row px-2">
+							<i class="far fa-calendar-alt"></i>
+							<h6 class="pl-2">
+								<strong>Orari:</strong> 07:00 - 13:30
+							</h6>
+						</div>
+					</li>
+					<li>
+						<div class="row px-2">
+							<i class="fas fa-map-marker-alt"></i>
+							<h6 class="pl-2">
+								<strong>Posizione: </strong> Via XXX XXX, Citta CodiceProv, CAP
+							</h6>
+						</div>
+					</li>
+					<li>
+						<div class="row px-2">
+							<i class="fas fa-phone"></i>
+							<h6 class="pl-2">
+								<strong>Telefono :</strong> +39 XXXX XXXXXX
+							</h6>
+						</div>
+					</li>
+					<li><div class="row px-2">
+							<i class="far fa-envelope"></i>
+							<h6 class="pl-2">
+								<strong>E-mail :</strong> beastsellerproject@gmail.com
+							</h6>
+						</div></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+</html>
